@@ -14,7 +14,7 @@ if start == 'y':
     print(f"Computer's first card: {computer_hand[0]}")
     draw_again = input("Do you want to draw again? 'y' or 'n': ")
     while draw_again not in ['y', 'n']:
-        print("Invalid input. Please enter 'y' or 'n'.")
+        print("Didn't understand input. Please enter 'y' or 'n'.")
         draw_again = input("Do you want to draw again? 'y' or 'n': ").lower()
 
     while draw_again == 'y' and not lost:
