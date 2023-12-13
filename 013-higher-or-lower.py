@@ -1,5 +1,4 @@
-import random
-import os
+import random, os, sys
 
 data = {
     'Adders-tongue fern': 1260,
@@ -58,7 +57,7 @@ i = 1
 
 print("Welcome to the higher or lower game.")
 
-while (winning):
+while (winning and score < len(keys) - 1):
     print(f"Compare A: {keys[currentKey]}\nAgainst B: {keys[currentKey+i]}")
     guess = input("Who has the highest chromosome number? Type A or B: ").lower()
     while guess not in ['a','b']:
@@ -77,8 +76,12 @@ while (winning):
         if data[keys[currentKey+i]] > data[keys[currentKey]]:
             score+=1
             print(f"You're right! Current score = {score}")
-            currentKey += 1
-            i += 1
+            currentKey += i
+            i = 1
         else:
             print(f"Sorry, that's wrong. Final score: {score}")
             winning = False
+
+if score == len(keys) - 1:
+    print("Wow! You win!")
+    sys.exit()
